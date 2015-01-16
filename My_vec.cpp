@@ -68,7 +68,7 @@ char& My_vec::elem_at_rank(int r) const{
 
 void My_vec::insert_at_rank(int r, const char& elem) {
 	if (r > size || r < 0) {
-		throw"invalid rank.";
+		throw "invalid rank.";
 	}
 
 	if (size == capacity) {
