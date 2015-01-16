@@ -1,64 +1,75 @@
 #include "My_vec.h"
 
+
+
 const int default_capacity = 10;
 
-My_vec::My_vec() {
+template <class CType>
+My_vec<CType>::My_vec() {
 	size = 0;
 	capacity = default_capacity;
-	ptr	 = new char[capacity];
+	ptr	 = new CType[capacity];
 }
 
-My_vec::My_vec(const My_vec& vec) {
-
+template <class CType>
+My_vec<CType>::My_vec(const My_vec<CType>& vec) {
 	this->size = vec.size;
 	this->capacity = vec.capacity;
-	ptr = new char[capacity];
+	ptr = new CType[capacity];
 	memcpy(ptr, vec.ptr, vec.size);
 }
 
-My_vec::~My_vec() {
+template <class CType>
+My_vec<CType>::~My_vec() {
 	delete ptr;
 }
 
-My_vec& My_vec::operator=(const My_vec& vec) {
+template <class CType>
+My_vec<CType>& My_vec<CType>::operator=(const My_vec<CType>& vec) {
 	if (this != &vec) {
 		delete ptr;
 		this->size = vec.size;
 		this->capacity = vec.capacity;
-		ptr = new char[capacity];
+		ptr = new CType[capacity];
 		memcpy(ptr, vec.ptr, vec.size);
 	}
 	return *this;
 
 }
 
-int My_vec::get_size() const {
+template <class CType>
+int My_vec<CType>::get_size() const {
 	return size;
 }
 
-int My_vec::get_capacity() const {
+template <class CType>
+int My_vec<CType>::get_capacity() const {
 	return capacity;
 }
 
-bool My_vec::is_empty() const {
+template <class CType>
+bool My_vec<CType>::is_empty() const {
 	return (size == 0);
 }
 
-char& My_vec::operator[](int i) const {
+template <class CType>
+CType& My_vec<CType>::operator[](int i) const {
 	if (i<size && i>=0){
 		return ptr[i];
 	}
 	throw" invalid rank.";
 }
 
-char& My_vec::operator[](int i){
+template <class CType>
+CType& My_vec<CType>::operator[](int i){
 	if (i<size && i>=0) {
 		return ptr[i];
 	}
 	throw"invalid rank.";
 }
 
-char& My_vec::elem_at_rank(int r) const{
+template <class CType>
+CType& My_vec<CType>::elem_at_rank(int r) const{
 	if(r>=0 && r<size){
 		return ptr[r];
 	}
@@ -66,14 +77,15 @@ char& My_vec::elem_at_rank(int r) const{
 
 }
 
-void My_vec::insert_at_rank(int r, const char& elem) {
+template <class CType>
+void My_vec<CType>::insert_at_rank(int r, const CType& elem) {
 	if (r > size || r < 0) {
 		throw "invalid rank.";
 	}
 
 	if (size == capacity) {
 		capacity = 2 * capacity;
-		char* temp = new char[capacity];
+		CType* temp = new CType[capacity];
 		memcpy(temp, ptr, size);
 		delete ptr;
 		ptr = temp;
@@ -88,7 +100,8 @@ void My_vec::insert_at_rank(int r, const char& elem) {
 	++size;
 }
 
-void My_vec::replace_at_rank(int r, const char& elem){
+template <class CType>
+void My_vec<CType>::replace_at_rank(int r, const CType& elem){
 	if (r>=0 && r<size){
 		ptr[r] = elem;
 	}
@@ -97,7 +110,8 @@ void My_vec::replace_at_rank(int r, const char& elem){
 	}
 }
 
-void My_vec::remove_at_rank(int r){
+template <class CType>
+void My_vec<CType>::remove_at_rank(int r){
 	if (r>=0 && r<size){
 		while(r+1<size){
 			ptr[r] = ptr[r+1];
@@ -110,7 +124,8 @@ void My_vec::remove_at_rank(int r){
 	}
 }
 
-ostream& operator<<(ostream& out, const My_vec& vec){
+template <class CType>
+ostream& operator<<(ostream& out, const My_vec<CType>& vec){
 	out<<"[";
 	int size = vec.get_size();
 	for(int i = 0; i<size; i++){
@@ -120,7 +135,8 @@ ostream& operator<<(ostream& out, const My_vec& vec){
 	return out;
 }
 
-int find_max_index(const My_vec& v,int size){
+template <class CType>
+int find_max_index(const My_vec<CType>& v,int size){
 	int v_size = v.get_size();
 
 	if(size>v_size){
@@ -144,9 +160,10 @@ int find_max_index(const My_vec& v,int size){
 	}
 }
 
-void sort_max(My_vec& vec){
+template <class CType>
+void sort_max(My_vec<CType>& vec){
 	int size = vec.get_size();
-	My_vec temp;
+	My_vec<CType> temp;
 	while(size>0){
 		int max = find_max_index(vec, size);
 		temp.insert_at_rank(0, vec[max]);

@@ -8,7 +8,7 @@
 int main() {
 	try {
 
-		My_vec v;
+		My_vec<char> v;
 		// define an object v of My_vec type
 		v.insert_at_rank(0,'B');
 		// insert 'B' at the rank 0 into the vector v
@@ -65,7 +65,7 @@ int main() {
 		cout<<"Supposed to print: 15"<<endl;
 		// display the vector v size
 
-		My_vec v1(v);
+		My_vec<char> v1(v);
 		// create a copy v1 of the vector v using a copy constructor
 		cout<<v1;
 		cout<<"Supposed to print:[C D E G H I J K L D M N O A B ]"<<endl;
@@ -76,7 +76,7 @@ int main() {
 		cout<<"Supposed to print:[C D Y G H I J K L D M N O A B ]"<<endl;
 		// use the overloaded operator << to display vector v1 elements
 
-		My_vec v2;
+		My_vec<char> v2;
 		// define an object v2 of My_vec type
 		v2.insert_at_rank(0,'K');
 		// insert 'K' at the rank 0 into the vector v2
