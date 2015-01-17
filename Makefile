@@ -1,8 +1,11 @@
-all: My_vec.o main.o
-	c++ -std=c++11 My_vec.o main.o -o main
-My_vec.o: My_vec.cpp My_vec.h
-	c++ -std=c++11 -c My_vec.cpp
+OBJS = main.o 
+CC = g++
+CFLAGS = -std=c++11 -Wall -c
+LFLAGS = -std=c++11 -Wall
+
+all: $(OBJS) 
+	$(CC) $(LFLAGS) $(OBJS) -o main
 main.o: main.cpp My_vec.h
-	c++ -std=c++11 -c main.cpp
+	$(CC) $(CFLAGS) main.cpp
 clean:
-	rm *.o main
+	\rm *.o main
