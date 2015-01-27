@@ -3,12 +3,12 @@
 
 #include <iostream>
 #include <stdexcept>
-#include "generic_My_vec.h"
+#include "My_vec.h"
 
 int main() {
 	try {
 
-		cout<<"First try, type: char"<<endl;
+		/* cout<<"First try, type: char"<<endl;
 
 		My_vec<char> v;
 		// define an object v of My_vec type
@@ -111,7 +111,7 @@ int main() {
 		
 
 
-
+*/
 
 
 
@@ -125,58 +125,59 @@ int main() {
 
 		My_vec<int> v_int;
 		// define an object v_int of My_vec type
-		v.insert_at_rank(0,2);
+		v_int.insert_at_rank(0,2);
 		// insert 2 at the rank 0 into the vector v_int
 		cout << v_int;
 		cout<<"Supposed to print: [2 ]"<<endl;
 		// use the overloaded operator << to display vector elements
-		cout << "size of v_int is: " << v.get_size() << endl;
+		cout << "size of v_int is: " << v_int.get_size() << endl;
 		cout<<"Supposed to print: 1"<<endl;
 		// display the vector v_int size
-		v.insert_at_rank(0,1);
+		v_int.insert_at_rank(0,1);
 		// insert 1 at the rank 0 into the vector v_int
 		cout << v_int;
 		cout<<"Supposed to print: [1 2 ]"<<endl;
 		// use the overloaded operator << to display vector elements
-		cout << "size of v_int is: " << v.get_size() << endl;
+		cout << "size of v_int is: " << v_int.get_size() << endl;
 		cout<<"Supposed to print: 2"<<endl;
 		// display the vector v_int size
 
 		int j = 0;
 		while (j < 13) {
-			v.insert_at_rank(i, 3 + i);
+			v_int.insert_at_rank(j, 3 + j);
+			cout<<"j:"<<j<<" elem:"<<3 + j<<endl;
 			j++;
 		}
 		cout<<v_int;
 		cout<<"Supposed to print: [3 4 5 6 7 8 9 10 11 12 13 14 15 1 2 ]"<<endl;
-		cout << "size of v_int is: " << v.get_size() << endl;
+		cout << "size of v_int is: " << v_int.get_size() << endl;
 		cout<<"Supposed to print: 15"<<endl;
 		// insert 13 elements into the vector
 
-		v.insert_at_rank(10,4);
+		v_int.insert_at_rank(10,4);
 		// insert int 4 at the rank 10 into the vector v_int
 		cout<<v_int;
 		cout<<"Supposed to print: [3 4 5 6 7 8 9 10 11 12 4 13 14 15 1 2 ]"<<endl;
 		// use the overloaded operator << to display vector elements
-		cout << "size of v_int is: " << v.get_size() << endl;
+		cout << "size of v_int is: " << v_int.get_size() << endl;
 		cout<<"Supposed to print: 16"<<endl;
 		// display the vector v_int size
 
-		v.remove_at_rank(2);
+		v_int.remove_at_rank(2);
 		// remove a character at the rank 2 from the vector v_int
 		cout<<v_int;
 		cout<<"Supposed to print:[3 5 6 7 8 9 10 11 12 4 13 14 15 1 2 ]"<<endl;
 		// use the overloaded operator << to display vector elements
-		cout << "size of v_int is: " << v.get_size() << endl;
+		cout << "size of v_int is: " << v_int.get_size() << endl;
 		cout<<"Supposed to print: 15"<<endl;
 		// display the vector v_int size
 
-		v.replace_at_rank(2,5);
+		v_int.replace_at_rank(2,5);
 		// replace a character at the rank 2 by the int 5
 		cout<<v_int;
 		cout<<"Supposed to print:[3 5 5 6 7 8 9 10 11 12 4 13 14 15 1 2]"<<endl;
 		// use the overloaded operator << to display vector elements
-		cout << "size of v_int is: " << v.get_size() << endl;
+		cout << "size of v_int is: " << v_int.get_size() << endl;
 		cout<<"Supposed to print: 15"<<endl;
 		// display the vector v_int size
 
@@ -185,7 +186,7 @@ int main() {
 		cout<<v_int_1;
 		cout<<"Supposed to print:[3 5 5 6 7 8 9 10 11 12 4 13 14 15 1 2]"<<endl;
 		// use the overloaded operator << to display the vector v_int_1
-		v1.replace_at_rank(2,25);
+		v_int_1.replace_at_rank(2,25);
 		// replace a character at the rank 2 of the vector v_int_1 with the int 25
 		cout<<v_int_1;
 		cout<<"Supposed to print:[3 25 5 6 7 8 9 10 11 12 4 13 14 15 1 2]"<<endl;
@@ -193,7 +194,7 @@ int main() {
 
 		My_vec<int> v_int_2;
 		// define an object v_int_2 of My_vec type
-		v2.insert_at_rank(0,11);
+		v_int_2.insert_at_rank(0,11);
 		// insert 1 at the rank 0 into the vector v2
 		cout<<v_int_2;
 		cout<<"Supposed to print:[11 3 25 5 6 7 8 9 10 11 12 4 13 14 15 1 2 ]"<<endl;
@@ -207,7 +208,7 @@ int main() {
 		cout<<v_int_2;
 		cout<<"Supposed to print:[11 3 25 5 6 7 8 9 10 11 12 4 13 14 15 1 2]"<<endl;
 		// use the overloaded operator << to display vector v_int_2
-		cout << "size of v2 is: " << v2.get_size() << endl;
+		cout << "size of v2 is: " << v_int_2.get_size() << endl;
 		cout<<"Supposed to print: 15"<<endl;
 		// display the vector v_int_2 size
 
