@@ -58,7 +58,7 @@ My_vec<CType>::My_vec(const My_vec<CType>& vec) {
 	this->size = vec.size;
 	this->capacity = vec.capacity;
 	ptr = new CType[capacity];
-	memcpy(ptr, vec.ptr, vec.size);
+	memcpy(ptr, vec.ptr, vec.size*sizeof(CType));
 }
 
 template <class CType>
@@ -73,7 +73,7 @@ My_vec<CType>& My_vec<CType>::operator=(const My_vec<CType>& vec) {
 		this->size = vec.size;
 		this->capacity = vec.capacity;
 		ptr = new CType[capacity];
-		memcpy(ptr, vec.ptr, vec.size);
+		memcpy(ptr, vec.ptr, vec.size*sizeof(CType));
 	}
 	return *this;
 
@@ -128,7 +128,7 @@ void My_vec<CType>::insert_at_rank(int r, const CType& elem) {
 	if (size == capacity) {
 		capacity = 2 * capacity;
 		CType* temp = new CType[capacity];
-		memcpy(temp, ptr, size);
+		memcpy(temp, ptr, size*sizeof(CType));
 		delete ptr;
 		ptr = temp;
 	}
