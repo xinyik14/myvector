@@ -1,6 +1,6 @@
 all: main.o
 	c++ -std=c++11 main.o -o main
-main.o: main.cpp My_vec.h
+main.o: main.cpp My_vec.h mineral.h
 	c++ -std=c++11 -c main.cpp 
 clean:
 	rm *.o main

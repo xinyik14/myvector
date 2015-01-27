@@ -4,10 +4,12 @@
 #include <iostream>
 #include <stdexcept>
 #include "My_vec.h"
+#include "mineral.h"
 
 int main() {
 	try {
 
+		/*
 		cout<<"First try, type: char"<<endl;
 
 		My_vec<char> v;
@@ -221,6 +223,14 @@ int main() {
 
 		v_int_2.replace_at_rank(14, 19);
 		// replace in the vector v_int_2 a character at the rank 14 with 19
+
+		*/
+
+		Mineral Talc(Talc, 1);
+		Mineral Gypsum(Gypsum, 2);
+
+		My_vec<Mineral> min;
+		min.insert_at_rank(0,Talc);
 	}
 
 	catch (exception &error) {
