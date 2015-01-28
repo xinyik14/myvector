@@ -226,11 +226,13 @@ int main() {
 
 		*/
 
-		Mineral Talc(Talc, 1);
-		Mineral Gypsum(Gypsum, 2);
+		Mineral Talc("Talc", 1);
+		Mineral Gypsum("Gypsum", 2);
 
 		My_vec<Mineral> min;
 		min.insert_at_rank(0,Talc);
+		cout<<min<<endl;
+		cout<<"supposed to be [Talc H: 1]"<<endl;
 	}
 
 	catch (exception &error) {

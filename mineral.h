@@ -10,13 +10,13 @@ using namespace std;
 
 class Mineral{
 
-	char name;
+	string name;
 	int hardness;
 
 public:
 
 	Mineral();
-	Mineral(char nam, int har);
+	Mineral(string nam, int har);
 	ostream& operator<<(ostream& out);
 	bool operator<(const Mineral& min);
 	bool operator>(const Mineral& min);
@@ -25,11 +25,11 @@ public:
 };
 
 Mineral::Mineral(){
-	name='';
+	name="";
 	hardness = 0;
 }
 
-Mineral::Mineral(char nam, int har){
+Mineral::Mineral(string nam, int har){
 	name = nam;
 	hardness = har;
 }
