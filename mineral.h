@@ -18,11 +18,19 @@ public:
 	Mineral();
 	Mineral(string nam, int har);
 	ostream& operator<<(ostream& out);
-	bool operator<(const Mineral& min);
-	bool operator>(const Mineral& min);
-	bool operator==(const Mineral& min);
+	string get_name();
+	string get_name()const;
+	int get_hardness();
+	int get_hardness()const;
+	
 	
 };
+
+
+ostream& operator<<(ostream& out, const Mineral& min);
+bool operator<(const Mineral& left, const Mineral& right);
+bool operator>(const Mineral& left, const Mineral& right);
+bool operator==(const Mineral& left, const Mineral& right);
 
 Mineral::Mineral(){
 	name="";
@@ -34,21 +42,37 @@ Mineral::Mineral(string nam, int har){
 	hardness = har;
 }
 
-ostream& Mineral::operator<<(ostream& out){
-	out<<name<<"H: "<<hardness;
+string Mineral::get_name(){
+	return name;
+}	
+
+string Mineral::get_name()const{
+ 	return name;
+ }
+
+ int Mineral::get_hardness()const{
+ 	return hardness;
+ }
+
+int Mineral::get_hardness(){
+	return hardness;
+}	
+
+ostream& operator<<(ostream& out, const Mineral& min){
+	out<<min.get_name()<<"H: "<<min.get_hardness();
 	return out;
 }
 
-bool Mineral::operator<(const Mineral& min){
-	return (hardness<min.hardness);		
+bool operator<(const Mineral& left, const Mineral& right){
+	return (left.get_hardness()<right.get_hardness());		
 }
 
-bool Mineral::operator>(const Mineral& min){
-	return (hardness>min.hardness);		
+bool operator>(const Mineral& left, const Mineral& right){
+	return (left.get_hardness()>right.get_hardness());		
 }
 
-bool Mineral::operator==(const Mineral& min){
-	return (hardness==min.hardness);	
+bool operator==(const Mineral& left, const Mineral& right){
+	return (left.get_hardness()==right.get_hardness());	
 }
 
 

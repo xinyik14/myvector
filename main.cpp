@@ -6,6 +6,7 @@
 #include "My_vec.h"
 #include "mineral.h"
 
+
 int main() {
 	try {
 
@@ -231,7 +232,7 @@ int main() {
 
 		My_vec<Mineral> min;
 		min.insert_at_rank(0,Talc);
-		cout<<min<<endl;
+		cout<<min;
 		cout<<"supposed to be [Talc H: 1]"<<endl;
 	}
 

@@ -99,7 +99,7 @@ CType& My_vec<CType>::operator[](int i) const {
 	if (i<size && i>=0){
 		return ptr[i];
 	}
-	throw" invalid rank.";
+	throw"invalid rank.";
 }
 
 template <class CType>
