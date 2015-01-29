@@ -63,7 +63,7 @@ My_vec<CType>::My_vec(const My_vec<CType>& vec) {
 
 template <class CType>
 My_vec<CType>::~My_vec() {
-	delete ptr;
+	delete[] ptr;
 }
 
 template <class CType>
