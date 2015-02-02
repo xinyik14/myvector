@@ -59,7 +59,7 @@ int Mineral::get_hardness(){
 }	
 
 ostream& operator<<(ostream& out, const Mineral& min){
-	out<<min.get_name()<<"H: "<<min.get_hardness();
+	out<<min.get_name()<<" H: "<<min.get_hardness();
 	return out;
 }
 
